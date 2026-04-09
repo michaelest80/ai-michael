@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Michael TJ Plein — AI Engineer</title>
+<title>Michael Plein — AI Engineer</title>
 <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;700&family=Syne:wght@400;700;800&display=swap" rel="stylesheet">
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -596,9 +596,9 @@
         Got an automation problem, an agent you want built, or an AI idea you need someone to turn into reality? I'd love to hear about it.
       </p>
       <div class="contact-links">
-        <a href="mailto:mplein@gmail.nl" class="contact-link">
+        <a href="/cdn-cgi/l/email-protection#dbb3beb7b7b49bb6b2b8b3babeb7abb7beb2b5f5b5b7" class="contact-link">
           <span class="link-label">Email</span>
-          mplein@gmail.com
+          <span class="__cf_email__" data-cfemail="640c0108080b24090d070c0501081408010d0a4a0a08">[email&#160;protected]</span>
         </a>
         <a href="https://linkedin.com/in/mtjplein" class="contact-link">
           <span class="link-label">LinkedIn</span>
@@ -611,28 +611,43 @@
       </div>
     </div>
     <div>
+      <form id="contact-form" action="https://formspree.io/f/mlgokwzy" method="POST">
       <div class="form-group">
         <label>Your name</label>
-        <input type="text" placeholder="Jane Smith">
+        <input type="text" name="name" placeholder="Jane Smith" required>
       </div>
       <div class="form-group">
         <label>Email</label>
-        <input type="email" placeholder="jane@company.com">
+        <input type="email" name="email" placeholder="jane@company.com" required>
       </div>
       <div class="form-group">
         <label>Tell me about your project</label>
-        <textarea placeholder="What do you want to automate or build?"></textarea>
+        <textarea name="message" placeholder="What do you want to automate or build?" required></textarea>
       </div>
-      <button class="btn btn-primary" style="width:100%; justify-content:center;">Send message →</button>
+      <button type="submit" class="btn btn-primary" style="width:100%; justify-content:center;">Send message →</button>
+      <p id="form-status" style="margin-top:1rem; font-size:12px; color:var(--green); display:none;"></p>
+      </form>
+      <script>
+        const form = document.getElementById('contact-form');
+        const status = document.getElementById('form-status');
+        form.addEventListener('submit', async function(e) {
+          e.preventDefault();
+          const data = new FormData(form);
+          const res = await fetch(form.action, { method: 'POST', body: data, headers: { 'Accept': 'application/json' } });
+          if (res.ok) {
+            status.textContent = '✓ Message sent. I\'ll be in touch soon.';
+            status.style.display = 'block';
+            form.reset();
+          } else {
+            status.textContent = '✗ Something went wrong. Please email me directly.';
+            status.style.color = '#ff4444';
+            status.style.display = 'block';
+          }
+        });
+      </script>
     </div>
   </div>
 </section>
 
 <footer>
-  <span>© 2026 Michael Plein</span>
-  <span style="color: var(--green);">AI Agents & Automation</span>
-  <span>Netherlands</span>
-</footer>
-
-</body>
-</html>
+  <span>© 2026 Mic
